@@ -3,6 +3,7 @@
 * {
   font-family: Lato;
   font-style: normal;
+  box-sizing: border-box;
 }
 
 body {
@@ -16,54 +17,57 @@ body {
   background-position: center 1.25%;
 }
 
-#navbar {
-  top: 0;
-  width: 100%;
-  padding: 10px 0;
+nav {
+  height: 70px;
+  padding: 1rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
-.nav-brand {
-  font-size: 40px;
+nav span {
+  margin: 0 2rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+nav a {
+  color: inherit;
   text-decoration: none;
-  padding-left: 20px;
 }
 
-#navbar ul {
-  list-style-type: none;
-  overflow: hidden;
-  padding-right: 20px;
+.logo img,
+.logo {
+  height: 100%;
 }
 
-#navbar li {
-  display: inline-block;
-}
-
-.nav-item a {
-  text-decoration: none;
-  font-weight: bold;
-  color: #012732;
-  display: block;
-  text-align: center;
-  padding: 13px 20px;
-}
-
-.nav-item:hover a {
-  text-decoration: none;
+.active {
   color: #059fc9;
+  border-bottom: 2px solid #059fc9;
 }
 
-a {
-  line-height: 1.4;
-  padding: 0.25em;
+.underline {
+  position: relative;
 }
 
-.current {
-  text-decoration: underline;
-  text-decoration-style: solid;
-  color: #767879 !important;
+.underline::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: #012732;
+  transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .underline:hover::before {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
 }
 
 .header {
@@ -78,8 +82,8 @@ a {
   font-size: 4rem;
 }
 
-.logo {
-  /* Rectangle 3 */
+/* .logo {
+  
   background: #ffffff;
   box-shadow: 0px 6px 13px rgba(5, 159, 201, 0.25);
   border-radius: 10px;
@@ -87,7 +91,7 @@ a {
   margin: 0.7rem;
   width: 2.5rem;
   text-align: center;
-}
+} */
 
 .member {
   border-radius: 10px;
@@ -117,6 +121,7 @@ a {
 .member .links a {
   font-size: xx-large;
   color: black;
+  margin: 0.5rem;
 }
 
 .member p a {
@@ -206,10 +211,11 @@ a {
     "twenty4 . twenty1 twenty2 twenty3"
     "twenty4 twenty5 . twenty2 twenty3"
     "twenty4 twenty5 twenty6 . twenty3"
-    "twenty4 twenty5 twenty6 . ."
-    "twenty4 twenty5 twenty6 . ."
-    ". twenty5 twenty6 . ."
-    ". . twenty6 . .";
+    "twenty4 twenty5 twenty6 twenty7 ."
+    "twenty4 twenty5 twenty6 twenty7 ."
+    ". twenty5 twenty6 twenty7 ."
+    ". . twenty6 twenty7 ."
+    ". . . twenty7 .";
 }
 
 .c2018 {
@@ -350,11 +356,6 @@ a {
 .container {
   height: 100%;
   margin: 0;
-}
-
-/* For presentation only, no need to copy the code below */
-
-.container {
   margin: 3em 5em;
 }
 
@@ -481,7 +482,8 @@ a {
       "twenty5 twenty6"
       "twenty5 twenty6"
       "twenty5 twenty6"
-      ". twenty6";
+      "twenty7 twenty6"
+      "twenty7 .";
   }
 
   .pic img {
@@ -560,7 +562,8 @@ a {
       "twenty3"
       "twenty4"
       "twenty5"
-      "twenty6";
+      "twenty6"
+      "twenty7";
   }
 }
 
